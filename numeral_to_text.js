@@ -13,6 +13,9 @@ connector = ' iuan ';
 supported_number_limit =  119;
 
 function numeral_to_text(numeral) {
+	if (numeral == "") {
+		return '';
+	}
 	if (numeral > supported_number_limit) {
 		return 'No disponible. ' + numeral + ' es mayor a ' + supported_number_limit + '.';
 	} else {
