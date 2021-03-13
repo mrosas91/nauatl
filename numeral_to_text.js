@@ -14,9 +14,9 @@ supported_number_limit =  119;
 
 function numeral_to_text(numeral) {
 	if (numeral > supported_number_limit) {
-		console.log('No disponible. ' + numeral + ' es mayor que ' + supported_number_limit + '.');
+		return 'No disponible. ' + numeral + ' es mayor a ' + supported_number_limit + '.';
 	} else {
-		console.log(n_to_text(numeral, true));
+		return (n_to_text(numeral, true));
 	}
 }
 
