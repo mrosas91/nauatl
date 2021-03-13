@@ -8,29 +8,47 @@
 	<!-- CSS only -->
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
 
+	<link rel="stylesheet" href="style.css">
+
 	<script src="numeral_to_text.js" charset="utf-8"></script>
 	<script type="text/javascript">
 		function renderAnswer() {
-			html = "<p>" +numeral_to_text(document.getElementById('numeral_input').value) + "</p>";
+			html = "<p class='fs-1 text-success'>" + numeral_to_text(document.getElementById('numeral_input').value) + "</p>";
 			document.getElementById("num_answer").innerHTML = html;
 		}
 	</script>
 </head>
 
 <body>
-	<h1>Panoltitsino</h1>
-	<p>
-		(Hola afectuoso)
-	</p>
-
-	<h2>Aprende los números</h2>
-	<p>
-		Del 0 al 119.
-	</p>
-	<input type="text" name="numeral_input" id="numeral_input" value="">
-	<button onclick="renderAnswer()">Nombrar</button>
-	<div id="num_answer">
-
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-lg text-center">
+				<h1>Panoltitsino</h1>
+				<p>
+					(Hola afectuoso)
+				</p>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-lg text-center">
+				<h2>Aprende los números</h2>
+				<p>
+					Del 0 al 119.
+				</p>
+			</div>
+		</div>
+		<div class="row">
+			<div class="mx-auto col-lg-4 col-md-6 col-sm-12">
+				<div class="input-group">
+					<input id="numeral_input" type="text" class="form-control" placeholder="Escribe el numeral aquí. E.g. 17" aria-label="Numeral">
+					<div class="input-group-append">
+						<button class="btn btn-success" type="button" onclick="renderAnswer()">Nombrar</button>
+					</div>
+				</div>
+				<div id="num_answer" class="text-center">
+				</div>
+			</div>
+		</div>
 	</div>
 </body>
 
