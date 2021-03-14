@@ -14,6 +14,7 @@
 	<script async src="https://www.googletagmanager.com/gtag/js?id=G-WTS58L6TQN"></script>
 	<script>
 		window.dataLayer = window.dataLayer || [];
+
 		function gtag() {
 			dataLayer.push(arguments);
 		}
@@ -24,7 +25,7 @@
 	<script src="numeral_to_text.js" charset="utf-8"></script>
 	<script type="text/javascript">
 		function renderAnswer() {
-			html = "<p class='fs-1 text-success'>" + numeral_to_text(document.getElementById('numeral_input').value) + "</p>";
+			html = "<div class='bg-success'><p class='fs-1 mt-2 text-white'>" + numeral_to_text(document.getElementById('numeral_input').value) + "</p></div>";
 			document.getElementById("num_answer").innerHTML = html;
 		}
 	</script>
@@ -51,12 +52,28 @@
 				</p>
 			</div>
 		</div>
-		<div class="row">
+		<div class="row p-4 bg-secondary">
+			<h3 class="text-center text-light">Practica de números a nombres</h3>
 			<div class="mx-auto col-lg-4 col-md-6 col-sm-12">
 				<div class="input-group input-group-lg">
 					<input id="numeral_input" type="text" class="form-control" placeholder="Escribe el numeral aquí. E.g. 17" aria-label="Numeral" onkeyup="renderAnswer()">
 					<div class="input-group-append input-group-lg">
 						<button class="btn btn-success" type="button" onclick="renderAnswer()">Nombrar</button>
+					</div>
+				</div>
+				<div id="num_answer" class="text-center">
+				</div>
+			</div>
+		</div>
+		<div class="row p-4">
+			<h3 class="text-center">Practica de nombres a números</h3>
+			<div class="mx-auto col-lg-4 col-md-6 col-sm-12">
+				<div id="generated_number" class="text-center">
+				</div>
+				<div class="input-group input-group-lg">
+					<input id="ex2_answer_input" type="text" class="form-control" placeholder="Escribe tu respuesta aquí. E.g. 45" aria-label="Numeral">
+					<div class="input-group-append input-group-lg">
+						<button class="btn btn-success" type="button" onclick="">Verificar</button>
 					</div>
 				</div>
 				<div id="num_answer" class="text-center">
