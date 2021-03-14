@@ -25,8 +25,8 @@
 	<script src="numeral_to_text.js" charset="utf-8"></script>
 	<script type="text/javascript">
 		function renderAnswer() {
-			html = "<div class='bg-success'><p class='fs-1 mt-2 text-white'>" + numeral_to_text(document.getElementById('numeral_input').value) + "</p></div>";
-			document.getElementById("num_answer").innerHTML = html;
+			html = "<div class='bg-success'><p class='fs-1 mt-2 text-white'>" + numeral_to_text(document.getElementById('whats_the_name_input').value) + "</p></div>";
+			document.getElementById("whats_the_name_answer").innerHTML = html;
 		}
 	</script>
 </head>
@@ -52,31 +52,34 @@
 				</p>
 			</div>
 		</div>
-		<div class="row p-4 bg-secondary">
-			<h3 class="text-center text-light">Escríbe un número y ve cómo se dice.</h3>
-			<div class="mx-auto col-lg-4 col-md-6 col-sm-12">
-				<div class="input-group input-group-lg">
-					<input id="numeral_input" type="text" class="form-control" placeholder="Escribe el numeral aquí. E.g. 17" aria-label="Numeral" onkeyup="renderAnswer()">
-					<div class="input-group-append input-group-lg">
-						<button class="btn btn-success" type="button" onclick="renderAnswer()">Nombrar</button>
-					</div>
-				</div>
-				<div id="num_answer" class="text-center">
-				</div>
-			</div>
-		</div>
 		<div class="row p-4">
-			<h3 class="text-center">Escribe el número de acuerdo al nombre.</h3>
+			<h3 class="text-center">Ejercicio 1. ¿Qué número es? Escríbelo.</h3>
 			<div class="mx-auto col-lg-4 col-md-6 col-sm-12">
-				<div id="generated_number" class="text-center">
+				<div class="text-center p-2">
+					<button class="btn btn-secondary" type="button">Nuevo número</button>
+				</div>
+				<div id="whats_the_number_generated_number" class="text-center">
 				</div>
 				<div class="input-group input-group-lg">
-					<input id="ex2_answer_input" type="text" class="form-control" placeholder="Escribe tu respuesta aquí. E.g. 45" aria-label="Numeral">
+					<input id="whats_the_number_input" type="text" class="form-control" placeholder="Escribe tu respuesta aquí. E.g. 45" aria-label="Numeral">
 					<div class="input-group-append input-group-lg">
 						<button class="btn btn-success" type="button" onclick="">Verificar</button>
 					</div>
 				</div>
-				<div id="num_answer" class="text-center">
+				<div id="whats_the_number_answer" class="text-center">
+				</div>
+			</div>
+		</div>
+		<div class="row p-4 mt-2 bg-secondary">
+			<h3 class="text-center text-light">Ejercicio 2. ¿Cómo se dice el número?</h3>
+			<div class="mx-auto col-lg-4 col-md-6 col-sm-12">
+				<div class="input-group input-group-lg">
+					<input id="whats_the_name_input" type="text" class="form-control" placeholder="Escribe el numeral aquí. E.g. 17" aria-label="Numeral" onkeyup="renderAnswer()">
+					<div class="input-group-append input-group-lg">
+						<button class="btn btn-success" type="button" onclick="renderAnswer()">Nombrar</button>
+					</div>
+				</div>
+				<div id="whats_the_name_answer" class="text-center">
 				</div>
 			</div>
 		</div>
@@ -91,8 +94,8 @@
 	}
 
 	function renderRandomNumber(random_number_name) {
-		html = "<div class='bg-secondary'><p class='fs-1 mt-2 text-white'>" + random_number_name + "</p></div>";
-		document.getElementById("generated_number").innerHTML = html;
+		html = "<div class='bg-light'><p class='fs-1 mt-2 text-info'>" + random_number_name + "</p></div>";
+		document.getElementById("whats_the_number_generated_number").innerHTML = html;
 	}
 
 	function getNewNumber() {
