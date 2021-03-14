@@ -27,7 +27,7 @@
 	<script src="numeral_to_text.js" charset="utf-8"></script>
 	<script type="text/javascript">
 		function renderAnswer() {
-			html = "<div class='bg-success'><p class='fs-1 mt-2 text-white'>" + numeral_to_text(document.getElementById('whats_the_name_input').value) + "</p></div>";
+			html = "<div class='bg-info'><p class='fs-1 mt-2 text-white'>" + numeral_to_text(document.getElementById('whats_the_name_input').value) + "</p></div>";
 			document.getElementById("whats_the_name_answer").innerHTML = html;
 		}
 	</script>
@@ -64,9 +64,9 @@
 				</div>
 				<div class="input-group input-group-lg">
 					<input id="whats_the_number_input" type="text" class="form-control" placeholder="Escribe tu respuesta aquí. E.g. 45" aria-label="Numeral" onkeyup="verifyWhatsTheNumberAnswer()">
-					<div class="input-group-append input-group-lg">
+					<!-- <div class="input-group-append input-group-lg">
 						<button class="btn btn-success" type="button" onclick="">Verificar</button>
-					</div>
+					</div> -->
 				</div>
 				<div id="whats_the_number_answer" class="text-center">
 				</div>
@@ -77,9 +77,9 @@
 			<div class="mx-auto col-lg-4 col-md-6 col-sm-12">
 				<div class="input-group input-group-lg">
 					<input id="whats_the_name_input" type="text" class="form-control" placeholder="Escribe el numeral aquí. E.g. 17" aria-label="Numeral" onkeyup="renderAnswer()">
-					<div class="input-group-append input-group-lg">
+					<!-- <div class="input-group-append input-group-lg">
 						<button class="btn btn-success" type="button" onclick="renderAnswer()">Nombrar</button>
-					</div>
+					</div> -->
 				</div>
 				<div id="whats_the_name_answer" class="text-center">
 				</div>
@@ -105,16 +105,27 @@
 		random_number = getRandomInt(max_supported_number);
 		var number_name = numeral_to_text(random_number);
 		renderRandomNumber(number_name);
+		renderResetAnswerBox();
+		resetAnswerField();
+		focusOnAnswerField();
 	}
 
 	function verifyWhatsTheNumberAnswer() {
 		numeral_answer = document.getElementById('whats_the_number_input').value;
 
-		numeral_answer == "" ? renderResetAnswerField() : renderWhatsTheNumberAnswer(random_number == numeral_answer);
+		numeral_answer == "" ? renderResetAnswerBox() : renderWhatsTheNumberAnswer(random_number == numeral_answer);
 	}
 
-	function renderResetAnswerField() {
+	function renderResetAnswerBox() {
 		document.getElementById("whats_the_number_answer").innerHTML = "";
+	}
+
+	function resetAnswerField() {
+		document.getElementById("whats_the_number_input").value = "";
+	}
+
+	function focusOnAnswerField() {
+		document.getElementById("whats_the_number_input").focus();
 	}
 
 	function renderWhatsTheNumberAnswer(success) {
