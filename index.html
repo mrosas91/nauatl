@@ -63,7 +63,7 @@
 				<div id="whats_the_number_generated_number" class="text-center">
 				</div>
 				<div class="input-group input-group-lg">
-					<input id="whats_the_number_input" type="text" class="form-control" placeholder="Escribe tu respuesta aquí. E.g. 45" aria-label="Numeral">
+					<input id="whats_the_number_input" type="text" class="form-control" placeholder="Escribe tu respuesta aquí. E.g. 45" aria-label="Numeral" onkeyup="verifyWhatsTheNumberAnswer()">
 					<div class="input-group-append input-group-lg">
 						<button class="btn btn-success" type="button" onclick="">Verificar</button>
 					</div>
@@ -90,6 +90,7 @@
 
 <script type="text/javascript">
 	var max_supported_number = 119;
+	var random_number = 0;
 
 	function getRandomInt(max) {
 		return Math.floor(Math.random() * Math.floor(max));
@@ -101,9 +102,26 @@
 	}
 
 	function getNewNumber() {
-		var number = getRandomInt(max_supported_number);
-		var number_name = numeral_to_text(number);
+		random_number = getRandomInt(max_supported_number);
+		var number_name = numeral_to_text(random_number);
 		renderRandomNumber(number_name);
+	}
+
+	function verifyWhatsTheNumberAnswer() {
+		numeral_answer = document.getElementById('whats_the_number_input').value;
+
+		numeral_answer == "" ? renderResetAnswerField() : renderWhatsTheNumberAnswer(random_number == numeral_answer);
+	}
+
+	function renderResetAnswerField() {
+		document.getElementById("whats_the_number_answer").innerHTML = "";
+	}
+
+	function renderWhatsTheNumberAnswer(success) {
+		success_html = "<div class='bg-success'><p class='fs-1 mt-2 text-white'> ¡Correcto! </p></div>";
+		error_html = "<div class='bg-danger'><p class='fs-4 mt-2 text-white'> Intenta de nuevo </p></div>";
+
+		document.getElementById("whats_the_number_answer").innerHTML = success? success_html: error_html;
 	}
 
 	getNewNumber();
