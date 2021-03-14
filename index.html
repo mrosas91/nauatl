@@ -53,7 +53,7 @@
 			</div>
 		</div>
 		<div class="row p-4 bg-secondary">
-			<h3 class="text-center text-light">Practica de números a nombres</h3>
+			<h3 class="text-center text-light">Escríbe un número y ve cómo se dice.</h3>
 			<div class="mx-auto col-lg-4 col-md-6 col-sm-12">
 				<div class="input-group input-group-lg">
 					<input id="numeral_input" type="text" class="form-control" placeholder="Escribe el numeral aquí. E.g. 17" aria-label="Numeral" onkeyup="renderAnswer()">
@@ -66,7 +66,7 @@
 			</div>
 		</div>
 		<div class="row p-4">
-			<h3 class="text-center">Practica de nombres a números</h3>
+			<h3 class="text-center">Escribe el número de acuerdo al nombre.</h3>
 			<div class="mx-auto col-lg-4 col-md-6 col-sm-12">
 				<div id="generated_number" class="text-center">
 				</div>
@@ -82,5 +82,28 @@
 		</div>
 	</div>
 </body>
+
+<script type="text/javascript">
+	var max_supported_number = 119;
+
+	function getRandomInt(max) {
+		return Math.floor(Math.random() * Math.floor(max));
+	}
+
+	function renderRandomNumber(random_number_name) {
+		html = "<div class='bg-secondary'><p class='fs-1 mt-2 text-white'>" + random_number_name + "</p></div>";
+		document.getElementById("generated_number").innerHTML = html;
+	}
+
+	function getNewNumber() {
+		var number = getRandomInt(max_supported_number);
+		var number_name = numeral_to_text(number);
+		renderRandomNumber(number_name);
+
+	}
+
+	getNewNumber();
+
+</script>
 
 </html>
