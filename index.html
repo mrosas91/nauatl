@@ -56,7 +56,7 @@
 			<h3 class="text-center">Ejercicio 1. ¿Qué número es? Escríbelo.</h3>
 			<div class="mx-auto col-lg-4 col-md-6 col-sm-12">
 				<div class="text-center p-2">
-					<button class="btn btn-secondary" type="button">Nuevo número</button>
+					<button class="btn btn-secondary" type="button" onclick="getNewNumber()">Nuevo número</button>
 				</div>
 				<div id="whats_the_number_generated_number" class="text-center">
 				</div>
@@ -102,7 +102,6 @@
 		var number = getRandomInt(max_supported_number);
 		var number_name = numeral_to_text(number);
 		renderRandomNumber(number_name);
-
 	}
 
 	getNewNumber();
